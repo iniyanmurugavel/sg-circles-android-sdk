@@ -1,14 +1,14 @@
 apply plugin: 'maven-publish'
 
 group   = 'com.circles.telco'
-version = '1.0.1'
+version = '1.0.2'
 
 publishing {
     publications {
         aar(MavenPublication) {
             groupId    = 'com.circles.telco'
             artifactId = 'circles-travel-pass-sdk'
-            version    = '1.0.1'
+            version    = '1.0.2'
 
             artifact("circles-travel-pass-sdk-1.0.0.aar")
 
