@@ -19,13 +19,13 @@ sg-circles-android-sdk/
 ## Artifact Coordinates
 
 ```kotlin
-implementation("com.github.iniyanmurugavel:sg-circles-android-sdk:1.0.0")
+implementation("com.github.iniyanmurugavel:sg-circles-android-sdk:1.0.1")
 ```
 
 ## JitPack Resolution Walkthrough
 1. **GitHub Repository**: [sg-circles-android-sdk](https://github.com/iniyanmurugavel/sg-circles-android-sdk)
 2. **JitPack URL**: `https://jitpack.io`
-3. **Dependency**: `implementation 'com.github.iniyanmurugavel:sg-circles-android-sdk:1.0.0'`
+3. **Dependency**: `implementation 'com.github.iniyanmurugavel:sg-circles-android-sdk:1.0.1'`
 4. **Build Status**: Check [JitPack Dashboard](https://jitpack.io/#iniyanmurugavel/sg-circles-android-sdk)
 
 ## How to Consume
@@ -44,7 +44,7 @@ dependencyResolutionManagement {
 **`app/build.gradle.kts`**:
 ```kotlin
 dependencies {
-  implementation("com.github.iniyanmurugavel:sg-circles-android-sdk:v1.0.0")
+  implementation("com.github.iniyanmurugavel:sg-circles-android-sdk:1.0.1")
 }
 ```
 
@@ -52,7 +52,8 @@ dependencies {
 
 | Version | Notes |
 |---|---|
-| `1.0.0` | Initial release — Circles Roaming brownfield flow |
+| `1.0.1` | Initial release (Production Grade) — Circles Roaming flow |
+| `1.0.0` | Initial release (Legacy Structure) |
 
 ## Updating the AAR
 
