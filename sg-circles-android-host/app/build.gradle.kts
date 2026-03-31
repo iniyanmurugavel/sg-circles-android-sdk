@@ -49,7 +49,7 @@ dependencies {
   // Keep only the Circles SDK as a local AAR. Everything else resolves as
   // normal Gradle dependencies from Maven repositories.
   // implementation(mapOf("name" to "circles-travel-pass-sdk-1.0.0", "ext" to "aar"))
-  implementation("com.github.iniyanmurugavel:sg-circles-android-sdk:v1.0.1")
+  implementation("com.github.iniyanmurugavel:sg-circles-android-sdk:1.0.2")
 
   implementation("androidx.activity:activity:1.13.0")
   implementation("androidx.activity:activity-compose:1.13.0")
