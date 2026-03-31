@@ -24,19 +24,30 @@ To provide a new SDK version, you need to increment the version numbers in the S
    }
    ```
 
-## 2. Generate the SDK AAR
+## 2. Generate the Signed Release AAR
 
-After updating the version, you need to build the new AAR file.
-(Note: The current project setup seems to use pre-built AARs. If you have the source code, you would run `./gradlew assembleRelease`).
+For production, you must always provide a **Signed Release AAR**. This ensures the code is optimized (minified) and verified.
 
-If you are manually adding a new AAR:
-1. Place the new AAR file (e.g., `circles-travel-pass-sdk-1.0.2.aar`) into the `sg-circles-android-sdk/circles-travel-pass-sdk/` directory.
-2. Update the `artifact` reference in `build.gradle`:
+1. **Configure Signing**: Ensure your `release` signing configuration is correctly set in `circles-sg-rn-expo/android/app/build.gradle`.
+2. **Build the AAR**: Run the release build command from the `android/` directory:
+   ```bash
+   ./gradlew :app:bundleReleaseAar
+   ```
+   *(Note: The exact task name may vary based on your `expo-brownfield-publish` configuration, but it will typically be under the `bundle` or `publish` groups.)*
+
+3. **Verify the Output**: The signed AAR will be generated in `circles-sg-rn-expo/android/app/build/outputs/aar/`.
+
+## 3. Distribute the SDK AAR
+
+Once you have the signed AAR:
+1. Rename it to match the version (e.g., `circles-travel-pass-sdk-1.0.2.aar`).
+2. Move it into the `sg-circles-android-sdk/circles-travel-pass-sdk/` directory.
+3. Update the `artifact` reference in the SDK's `build.gradle`:
    ```gradle
    artifact("circles-travel-pass-sdk-1.0.2.aar")
    ```
 
-## 3. Update the Host App
+## 4. Update the Host App
 
 To consume the new SDK in the host application:
 
