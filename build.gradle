@@ -1,0 +1,48 @@
+apply plugin: 'maven-publish'
+
+group   = 'com.github.iniyanmurugavel'
+version = '1.0.0'
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId    = 'com.github.iniyanmurugavel'
+            artifactId = 'sg-circles-android-sdk'
+            version    = '1.0.0'
+
+            artifact("circles-travel-pass-sdk-1.0.0.aar")
+
+            pom {
+                name        = 'Circles Travel Pass SDK'
+                description = 'Expo brownfield SDK for the Circles Roaming travel pass flow'
+                url         = 'https://github.com/iniyanmurugavel/sg-circles-android-sdk'
+
+                licenses {
+                    license {
+                        name         = 'Circles Proprietary'
+                        distribution = 'repo'
+                    }
+                }
+
+                withXml {
+                    def deps = asNode().appendNode('dependencies')
+
+                    [
+                        ['com.facebook.react',  'react-android',  '0.83.4'],
+                        ['com.facebook.hermes', 'hermes-android', '0.14.1'],
+                        ['host.exp.exponent',   'expo.core',      '55.0.9'],
+                        ['androidx.activity',   'activity',       '1.13.0'],
+                        ['androidx.appcompat',  'appcompat',      '1.7.0' ],
+                        ['androidx.fragment',   'fragment-ktx',   '1.6.1' ],
+                    ].each { grp, art, ver ->
+                        def dep = deps.appendNode('dependency')
+                        dep.appendNode('groupId',    grp)
+                        dep.appendNode('artifactId', art)
+                        dep.appendNode('version',    ver)
+                        dep.appendNode('scope',      'runtime')
+                    }
+                }
+            }
+        }
+    }
+}
