@@ -47,28 +47,45 @@ Once you have the signed AAR:
    artifact("circles-travel-pass-sdk-1.0.2.aar")
    ```
 
-## 4. Update the Host App
+## 5. Internal Testing
 
-To consume the new SDK in the host application:
+To test the **Circles Roaming** feature during development before releasing a new SDK version:
 
-1. Copy the new AAR file to the host app's `libs` directory:
-   `sg-circles-android-host/app/libs/`
-2. Open `sg-circles-android-host/app/build.gradle.kts`.
-3. Update the dependency version:
-   ```kotlin
-   implementation(mapOf("name" to "circles-travel-pass-sdk-1.0.2", "ext" to "aar"))
+1. **Start the Metro Bundler**:
+   From the `circles-sg-rn-expo/` directory:
+   ```bash
+   npm install
+   npm run dev
    ```
-4. Sync the Gradle project in Android Studio.
+2. **Run the Native Shell**:
+   In another terminal, from the `circles-sg-rn-expo/` directory:
+   ```bash
+   npx expo run:android
+   ```
+   This will build and launch a native Android shell that loads your local React Native code. This is the best way to verify the feature in isolation.
 
-## 4. Commit and Push
+## 6. JitPack Deployment (Recommended)
 
-Once verified, commit your changes in both the SDK and Host App directories:
+Deploying to **JitPack** is the standard way to share this SDK across different repositories. 
 
-```bash
-git add .
-git commit -m "chore: bump sdk version to 1.0.2 and update host app"
-git push origin main
-```
+### Why JitPack?
+- **Automated Builds**: JitPack builds the AAR directly from your GitHub repository.
+- **Easy Consumption**: Host apps don't need to copy-paste AAR files; they just add a Maven dependency.
 
-> [!TIP]
-> For production, consider using **JitPack** to automate the publication of the SDK directly from the GitHub repository. This removes the need for manual AAR copying.
+### How to use JitPack:
+1. Ensure your SDK repository (`sg-circles-android-sdk`) has a clean `build.gradle` that applies the `maven-publish` plugin.
+2. Tag a release on GitHub (e.g., `v1.0.2`).
+3. In the **Host App**, add the JitPack repository and the dependency:
+   ```kotlin
+   // settings.gradle.kts
+   dependencyResolutionManagement {
+       repositories {
+           maven { url = uri("https://www.jitpack.io") }
+       }
+   }
+
+   // app/build.gradle.kts
+   dependencies {
+       implementation("com.github.iniyanmurugavel:sg-circles-android-sdk:1.0.2")
+   }
+   ```
