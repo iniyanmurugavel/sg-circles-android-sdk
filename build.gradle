@@ -1,4 +1,25 @@
+// Production Grade AAR Distribution Buildscript for JitPack
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.3.2'
+    }
+}
+
+apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
+
+android {
+    namespace 'com.github.iniyanmurugavel.sgcirclesandroidsdk'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 24
+    }
+}
 
 group   = 'com.github.iniyanmurugavel'
 version = '1.0.0'
@@ -10,11 +31,12 @@ publishing {
             artifactId = 'sg-circles-android-sdk'
             version    = '1.0.0'
 
+            // Link the pre-built AAR from the root
             artifact("circles-travel-pass-sdk-1.0.0.aar")
 
             pom {
                 name        = 'Circles Travel Pass SDK'
-                description = 'Expo brownfield SDK for the Circles Roaming travel pass flow'
+                description = 'Production Grade flattened SDK distribution for JitPack'
                 url         = 'https://github.com/iniyanmurugavel/sg-circles-android-sdk'
 
                 licenses {
@@ -26,7 +48,6 @@ publishing {
 
                 withXml {
                     def deps = asNode().appendNode('dependencies')
-
                     [
                         ['com.facebook.react',  'react-android',  '0.83.4'],
                         ['com.facebook.hermes', 'hermes-android', '0.14.1'],
