@@ -1,0 +1,13 @@
+{
+  "featureName": "Circles Roaming",
+  "entryRoute": "telco/roaming",
+  "screenTitle": "Circles premium roaming activation flow",
+  "bodyCopy": "The native host opens the Expo brownfield module with subscriber and destination context, Travel Passes curates roaming offers, and Activation Summary returns a typed activation payload back to native.",
+  "primaryButtonLabel": "Review activation summary",
+  "designTokenVersion": "2026.03",
+  "demoChecklist": [
+    "The native host launches the Expo brownfield module with a typed telco payload",
+    "Travel Passes and Activation Summary run from one shared Expo codebase",
+    "Native host apps only update the SDK version"
+  ]
+}

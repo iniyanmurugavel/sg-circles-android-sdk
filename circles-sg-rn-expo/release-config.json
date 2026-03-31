@@ -1,0 +1,16 @@
+{
+  "iosSdkRepo": "../ios-brownfield-sdk",
+  "androidSdkRepo": "../android-brownfield-sdk",
+  "ios": {
+    "packageName": "CirclesTravelPassSDK",
+    "binaryName": "CirclesTravelPassBrownfield",
+    "bundleIdentifier": "com.circles.travelpass.brownfield",
+    "packageIdentity": "ios-circles-travel-pass-sdk",
+    "packageUrl": "https://github.com/circles-life/ios-circles-travel-pass-sdk.git"
+  },
+  "android": {
+    "group": "com.circles.telco",
+    "artifactId": "circles-travel-pass-sdk",
+    "package": "com.circles.travelpass.brownfield"
+  }
+}

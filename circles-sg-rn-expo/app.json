@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Circles Roaming",
+    "slug": "circles-roaming",
+    "scheme": "circlesroaming",
+    "ios": {
+      "bundleIdentifier": "com.circles.travelpass.app"
+    },
+    "android": {
+      "package": "com.circles.travelpass.app"
+    },
+    "plugins": [
+      [
+        "expo-brownfield",
+        {
+          "ios": {
+            "targetName": "CirclesTravelPassBrownfield",
+            "bundleIdentifier": "com.circles.travelpass.brownfield"
+          },
+          "android": {
+            "group": "com.circles.telco",
+            "libraryName": "circles-travel-pass-sdk",
+            "package": "com.circles.travelpass.brownfield",
+            "version": "1.0.0",
+            "publishing": [
+              {
+                "type": "remotePrivate",
+                "name": "githubPackages",
+                "url": {
+                  "variable": "CIRCLES_MAVEN_URL"
+                },
+                "username": {
+                  "variable": "CIRCLES_MAVEN_USERNAME"
+                },
+                "password": {
+                  "variable": "CIRCLES_MAVEN_PASSWORD"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    ]
+  }
+}

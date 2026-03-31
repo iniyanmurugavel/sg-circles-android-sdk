@@ -1,0 +1,44 @@
+# Gradle / Android
+.gradle/
+build/
+local.properties
+*.iml
+*.keystore
+!debug.keystore
+
+# Node / React Native
+node_modules/
+.expo/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+
+# macOS
+.DS_Store
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivefile
+xcuserstate
+
+# IDEs
+.idea/
+*.swp
+*.swo
+
+# iOS builds
+DerivedData/
+*.xcworkspace/xcuserdata
+*.xccheckout
+*.moved-aside
+Pods/
+
+# Build artifacts — do NOT commit these
+circles-sg-rn-expo/android/build/
+circles-sg-rn-expo/expo-export-android/
+circles-sg-rn-expo/expo-export-ios/
+circles-sg-rn-expo/expo-export-web/
+circles-sg-rn-expo/web-shot*.png
+sg-circles-android-host/app/build/
+sg-circles-android-host/build/

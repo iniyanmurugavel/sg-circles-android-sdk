@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Gradle
+.gradle
+build/
+local.properties
+*.iml
+.idea/
+.DS_Store
+
+# Android
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+out/
+release/
+
+# Logs
+*.log
+npm-debug.log*

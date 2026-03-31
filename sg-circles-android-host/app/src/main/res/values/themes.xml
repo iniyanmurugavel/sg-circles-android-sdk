@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.CirclesTravelPassHost" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/circles_roaming_background</item>
+        <item name="android:colorBackground">@color/circles_roaming_background</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#06121d</item>
+        <item name="android:navigationBarColor">#06121d</item>
+    </style>
+</resources>

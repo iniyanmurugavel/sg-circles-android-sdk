@@ -1,0 +1,41 @@
+{
+  "name": "circles-sg-rn-expo",
+  "private": true,
+  "main": "index.js",
+  "type": "module",
+  "expo": {
+    "autolinking": {
+      "android": {
+        "exclude": [
+          "@expo/dom-webview",
+          "expo-image",
+          "expo-router"
+        ]
+      }
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "expo start",
+    "build:ios:real": "npx expo-brownfield build:ios -r -p CirclesTravelPassSDK",
+    "build:android:debug": "npx expo-brownfield build:android -d --repository MavenLocal",
+    "build:android:release": "npx expo-brownfield build:android -r --repository MavenLocal",
+    "build:ios:simulate": "node scripts/simulate-build-ios.mjs --version 1.0.0",
+    "build:android:simulate": "node scripts/simulate-build-android.mjs --version 1.0.0",
+    "release:simulate": "node scripts/release-sdks.mjs --version 1.0.0"
+  },
+  "dependencies": {
+    "expo": "^55.0.9",
+    "expo-brownfield": "^55.0.16",
+    "react": "19.2.0",
+    "react-dom": "^19.2.0",
+    "react-native": "0.83.4",
+    "react-native-web": "^0.21.2"
+  },
+  "devDependencies": {
+    "@types/react": "~19.2.10",
+    "typescript": "~5.9.2"
+  }
+}
