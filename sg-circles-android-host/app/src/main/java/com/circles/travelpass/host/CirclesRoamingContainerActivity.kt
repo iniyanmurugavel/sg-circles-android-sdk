@@ -111,7 +111,7 @@ class CirclesRoamingContainerActivity : BrownfieldActivity(), DefaultHardwareBac
       androidx.appcompat.widget.Toolbar(this).apply {
         title = "Circles Roaming"
         setTitleTextColor(Color.WHITE)
-        setBackgroundColor(Color.parseColor("#151515"))
+        setBackgroundColor(Color.TRANSPARENT)
         setNavigationIcon(androidx.appcompat.R.drawable.abc_ic_ab_back_material)
         setNavigationOnClickListener { finish() }
       }
@@ -156,7 +156,10 @@ class CirclesRoamingContainerActivity : BrownfieldActivity(), DefaultHardwareBac
     // Handle Edge-to-Edge properly
     androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(shell) { v, insets ->
       val bars = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.systemBars())
-      v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+      // Apply top padding to toolbar to keep title below status bar
+      toolbar.setPadding(0, bars.top, 0, 0)
+      // Apply bottom padding to root shell for navigation bar
+      v.setPadding(bars.left, 0, bars.right, bars.bottom)
       insets
     }
 
