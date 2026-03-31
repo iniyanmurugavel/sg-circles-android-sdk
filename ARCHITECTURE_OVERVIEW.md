@@ -23,11 +23,32 @@ This project uses a **Brownfield Shared SDK Architecture**. This means the featu
 
 ---
 
-## The Big Picture: Why two Android projects?
+## The Scalability Puzzle: Why separate them?
 
-| Component | Purpose | Key File |
-| :--- | :--- | :--- |
-| **`circles-sg-rn-expo/android`** | **Testing the Feature**: A shell to run the React Native code during development. | `MainApplication.kt` |
-| **`sg-circles-android-sdk/...`** | **Packaging the SDK**: A library project to bundle the feature for distribution. | `build.gradle` (AAR config) |
+You might wonder why we don't just use the `android` code inside the React Native repo directly. For a small project, you could. But for a **production-ready Enterprise architecture**, this separation is key for **scalability**:
 
-**In short: You *develop* the feature in the first one, and you *publish* it to a native library in the second one.**
+### 1. Build Isolation & Speed
+- **The Problem**: If the host app depends directly on the RN source, every time a native developer builds the host app, Gradle has to check and potentially rebuild the entire React Native environment.
+- **The Scalable Solution**: The SDK repo provides a **pre-compiled AAR**. This means the host app developer doesn't even need Node.js or the Expo CLI installed on their machine. They just link a binary, making their builds much faster.
+
+### 2. Team Independence (Governance)
+- **The Problem**: Native App teams (e.g., the "Core App" team) don't want to manage React Native versions or Expo updates.
+- **The Scalable Solution**: The Feature team (React Native) manages their own lifecycle. They produce a "stable" SDK version (e.g., `1.0.2`), and the Native team adopts it only when they are ready. This prevents a change in the RN repo from accidentally breaking the Main App.
+
+### 3. Repository Ownership
+- In many large companies, the **Search** feature, **Payment** feature, and **Roaming** feature are owned by different teams.
+- Each team has their own `sg-rn-feature-x` repo.
+- They all publish to a centralized `sg-circles-android-sdk` (or a Maven repo) so the Main App team has a single place to find all their tools.
+
+---
+
+## The "Distribution Wrapper" Concept
+
+The code you see in **`sg-circles-android-sdk`** doesn't actually contain the source for the UI. It's a **Distribution Wrapper**.
+
+1. **Source**: You write code in `circles-sg-rn-expo`.
+2. **Build**: You run a command that packages that code into a `.aar` (Android Archive) file.
+3. **Publish**: You move that `.aar` into the `sg-circles-android-sdk` repository.
+4. **Consume**: The Host app (`sg-circles-android-host`) pulls that `.aar` from the SDK repo.
+
+**This is scalable because it treats the shared feature as a "Product" that is shipped to the native teams, rather than just a bunch of files they have to manage.**
