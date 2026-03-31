@@ -1,8 +1,5 @@
 jdk:
   - openjdk17
 
-before_install:
-  - echo "Building Circles Travel Pass SDK for JitPack"
-
 install:
-  - ./gradlew clean publishToMavenLocal -xtest -xlint
+  - ./gradlew publishToMavenLocal

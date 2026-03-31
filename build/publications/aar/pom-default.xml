@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.iniyanmurugavel</groupId>
+  <artifactId>sg-circles-android-sdk</artifactId>
+  <version>1.0.2</version>
+  <packaging>aar</packaging>
+  <name>Circles Travel Pass SDK</name>
+  <description>Production Grade flattened SDK distribution for JitPack</description>
+  <url>https://github.com/iniyanmurugavel/sg-circles-android-sdk</url>
+  <licenses>
+    <license>
+      <name>Circles Proprietary</name>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <dependencies>
+    <dependency>
+      <groupId>com.facebook.react</groupId>
+      <artifactId>react-android</artifactId>
+      <version>0.83.4</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.facebook.hermes</groupId>
+      <artifactId>hermes-android</artifactId>
+      <version>0.14.1</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>host.exp.exponent</groupId>
+      <artifactId>expo.core</artifactId>
+      <version>55.0.9</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>androidx.activity</groupId>
+      <artifactId>activity</artifactId>
+      <version>1.13.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>androidx.appcompat</groupId>
+      <artifactId>appcompat</artifactId>
+      <version>1.7.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>androidx.fragment</groupId>
+      <artifactId>fragment-ktx</artifactId>
+      <version>1.6.1</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+</project>

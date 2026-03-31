@@ -9,11 +9,9 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+repositories {
+    google()
+    mavenCentral()
 }
 
 apply plugin: 'com.android.library'
@@ -29,14 +27,14 @@ android {
 }
 
 group   = 'com.github.iniyanmurugavel'
-version = '1.0.2'
+version = '1.0.1'
 
 publishing {
     publications {
         aar(MavenPublication) {
             groupId    = 'com.github.iniyanmurugavel'
             artifactId = 'sg-circles-android-sdk'
-            version    = '1.0.2'
+            version    = '1.0.1'
 
             // Link the pre-built AAR from the root
             artifact("circles-travel-pass-sdk-1.0.0.aar")
