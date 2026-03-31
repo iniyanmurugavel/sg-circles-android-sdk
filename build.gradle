@@ -29,14 +29,14 @@ android {
 }
 
 group   = 'com.github.iniyanmurugavel'
-version = '1.0.1'
+version = '1.0.2'
 
 publishing {
     publications {
         aar(MavenPublication) {
             groupId    = 'com.github.iniyanmurugavel'
             artifactId = 'sg-circles-android-sdk'
-            version    = '1.0.1'
+            version    = '1.0.2'
 
             // Link the pre-built AAR from the root
             artifact("circles-travel-pass-sdk-1.0.0.aar")
